@@ -16,6 +16,7 @@
     .title-container { 
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin: 3em 1em;
     }
 

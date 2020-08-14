@@ -45,26 +45,9 @@
 
 <script>
 
-const addZeroToNumber = (aNumber) => {
-    let numberAsString = aNumber + "";
-    return numberAsString.length > 1 ? numberAsString : ("0" + numberAsString);
-};
-
-const convertDateToString = (date) => {
-    let dateValues = [date.getDate(), date.getMonth() + 1, date.getFullYear()]
-        .map(value => addZeroToNumber(value));
-    let timeValues = [date.getHours(), date.getMinutes(), date.getSeconds()]
-        .map(value => addZeroToNumber(value));
-    return dateValues.join("/") + " " + timeValues.join(":");
-};
-
-const dateIsLowerThan = (target, compareWith) => {
-    let timeDifference =  target.getTime() - compareWith.getTime();
-    return timeDifference < 0;
-};
-
 import Database from './Database';
 import ErrorNotifier from '../ErrorNotifier';
+import * as TimeUtils from '../TimeUtils';
 
 export default {
     data() {
@@ -108,11 +91,11 @@ export default {
         },
 
         expirationDateAsString: function () {
-            return convertDateToString(this.expirationDate);
+            return TimeUtils.convertDateToString(this.expirationDate);
         },
 
         isExpired: function () {
-            return dateIsLowerThan(this.expirationDate, new Date());
+            return TimeUtils.dateIsLowerThan(this.expirationDate, new Date());
         }
     },
 
