@@ -4,7 +4,6 @@
           <router-link to="/firestore" class="waves-effect waves-teal btn-flat">Firestore</router-link>
           <router-link to="/realtime" class="waves-effect waves-teal btn-flat">Real Time Database</router-link>
           <router-link to="/storage" class="waves-effect waves-teal btn-flat">File Storage</router-link>
-          <router-link to="" class="waves-effect waves-teal btn-flat">Functions</router-link>
         </div>
     </div>
 </template>
